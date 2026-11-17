@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { ListTodo } from "lucide-react";
 import { CornerDownLeft } from "lucide-react";
 import { TaskComposer } from "@/components/TaskComposer";
 import { TaskFilters } from "@/components/TaskFilters";
 import { TaskEmptyState } from "@/components/TaskEmptyState";
+import { TaskList } from "@/components/TaskList";
 
 const Home = () => {
   return (
@@ -26,7 +29,7 @@ const Home = () => {
         <TaskFilters />
 
         <div className="w-full h-px bg-[#E9EEEB]"></div>
-
+        {/* <TaskList /> */}
         <TaskEmptyState />
       </div>
     </main>
