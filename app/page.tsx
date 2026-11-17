@@ -1,5 +1,6 @@
 "use client";
 
+
 import Image from "next/image";
 import { ListTodo } from "lucide-react";
 import { CornerDownLeft } from "lucide-react";
@@ -7,8 +8,22 @@ import { TaskComposer } from "@/components/TaskComposer";
 import { TaskFilters } from "@/components/TaskFilters";
 import { TaskEmptyState } from "@/components/TaskEmptyState";
 import { TaskList } from "@/components/TaskList";
+import type { Task } from "@/components/TaskList";
+
+import { useState } from "react";
+
+
 
 const Home = () => {
+
+  const [tasks, setTasks] = useState<Task[]>([
+    { id: "1", title: "Prepare tomorrow's lesson", completed: false },
+    { id: "2", title: "Buy groceries", completed: false },
+    { id: "3", title: "Read 20 pages", completed: true },
+  ]);
+
+
+
   return (
     <main className="flex flex-col w-200 h-fit py-20 px-16 bg-[#EAF0EB]">
       <div className="flex flex-col w-2xl h-fit rounded-3xl bg-[white] ">
@@ -29,8 +44,7 @@ const Home = () => {
         <TaskFilters />
 
         <div className="w-full h-px bg-[#E9EEEB]"></div>
-        {/* <TaskList /> */}
-        <TaskEmptyState />
+        {tasks.length === 0 ? <TaskEmptyState /> : <TaskList tasks={tasks} />}
       </div>
     </main>
   );
