@@ -1,14 +1,11 @@
 "use client";
 
 
-import Image from "next/image";
 import { ListTodo } from "lucide-react";
 import { CornerDownLeft } from "lucide-react";
-import { TaskComposer } from "@/components/TaskComposer";
-import { TaskFilters } from "@/components/TaskFilters";
-import { TaskEmptyState } from "@/components/TaskEmptyState";
-import { TaskList } from "@/components/TaskList";
 import type { Task } from "@/components/TaskList";
+
+import { TaskComposer, TaskFilters, TaskEmptyState, TaskList } from "@/components";
 
 import { useState } from "react";
 
@@ -16,13 +13,18 @@ import { useState } from "react";
 
 const Home = () => {
 
-  const [tasks, setTasks] = useState<Task[]>([
-    { id: "1", title: "Prepare tomorrow's lesson", completed: false },
-    { id: "2", title: "Buy groceries", completed: false },
-    { id: "3", title: "Read 20 pages", completed: true },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
+  const createTitle = (title: string) => {
+    const newTask: Task = {
+      id: Date.now().toString(),
+      title,
+      completed: false
+    };
+    setTasks((current) => [...current, newTask]);
+  };
 
+  
 
   return (
     <main className="flex flex-col w-200 h-fit py-20 px-16 bg-[#EAF0EB]">
@@ -34,7 +36,7 @@ const Home = () => {
           <h1 className="w-28 h-9 font-semibold text-2xl leading-9 text-[#213D35]">My tasks.</h1>
         </header>
 
-        <TaskComposer />
+        <TaskComposer onCreateTask={createTitle}/>
 
         <div className="w-full h-14.25 pt-3 pr-9 pb-7 flex gap-1.5 justify-end">
           <div className=" flex justify-center items-center">< CornerDownLeft className="w-3 h-3 text-[#7A8881]"/></div>

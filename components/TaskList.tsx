@@ -7,11 +7,11 @@ export type Task = {
   completed: boolean;
 };
 
-type Props = {
+type TaskListProps = {
   tasks: Task[];
-};
+}
 
-export const TaskList = ({ tasks }: Props) => {
+export const TaskList = ({ tasks }: TaskListProps) => {
   return (
     <div className='flex flex-col w-full h-fit py-2 px-5'>
       {tasks.map((task) => (

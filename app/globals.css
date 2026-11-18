@@ -1,5 +1,5 @@
 @import "tailwindcss";
 
-@theme inline {
+* inline {
   --font-sans: var(--font-inter);
 }
