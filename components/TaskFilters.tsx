@@ -1,6 +1,13 @@
-import React from 'react'
+import { FilterType } from "@/components";
 
-export const TaskFilters = () => {
+const filters: FilterType[] = ["All", "Active", "Completed",];
+
+type TaskFiltersProps = {
+  filter: FilterType;
+  onFilter: (fikter: FilterType) => void;
+}
+
+export const TaskFilters = ({filter, onFilter}: TaskFiltersProps) => {
   return (
     <div className='w-full h-12 px-8 flex gap-7 justify-between items-center'>
       <div className='w-fit h-full flex gap-7'>
