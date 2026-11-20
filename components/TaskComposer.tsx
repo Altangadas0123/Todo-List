@@ -25,7 +25,6 @@ export const TaskComposer = ({ onCreateTask }: TaskComposerProps) => {
     onCreateTask(title);
     setTaskTitle("");
   };
-
   return (
     <div className="w-full px-8 flex">
       <form
@@ -39,10 +38,12 @@ export const TaskComposer = ({ onCreateTask }: TaskComposerProps) => {
           className="w-113.5 h-14 text-base leading-6 rounded-xl p-4 text-[#213D35] placeholder:text-[#75867E] outline-none focus:bg-white focus:text-[#213D35] transition-colors"
         />
         <button type="submit" className={`w-32 h-12 rounded-xl flex items-center justify-center gap-2 transition-colors ${hasText ? "bg-[#236B53]" : "bg-[#D8E5DD]"}`}>
-          <Plus size={16} strokeWidth={2} className={'text-[#63796C]'} />
-          <span className='font-semibold text-sm leading-5.25 text-[#63796C]'>Add task</span>
+          <Plus size={16} strokeWidth={2} className={`${hasText ? "text-[white]" : "text-[#63796C]"}`} />
+          <span className={`font-semibold text-sm leading-5.25 ${hasText ? "text-[white]" : "text-[#63796C]"}`}>Add task</span>
         </button>
       </form>
     </div>
   );
 };
+
+// #236B53]

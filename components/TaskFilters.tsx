@@ -17,9 +17,7 @@ export const TaskFilters = ({ filter, onFilter, count }: TaskFiltersProps) => {
             key={item}
             onClick={() => onFilter(item)}
             className={`flex items-center h-12 border-b-2 font-semibold text-sm leading-5.25 ${
-              filter === item
-                ? "border-[#236B53] text-[#236B53]"
-                : "border-transparent text-[#7B8680] hover:text-[#236B53]"
+              filter === item ? "border-[#236B53] text-[#236B53]" : "border-transparent text-[#7B8680] hover:text-[#236B53]"
             }`}
           >
             {item}
@@ -27,9 +25,7 @@ export const TaskFilters = ({ filter, onFilter, count }: TaskFiltersProps) => {
         ))}
       </div>
 
-      <p className="flex items-center justify-center min-w-6 h-6.25 bg-[#F0F4F1] rounded-md px-1.5 text-[11px] leading-[16.5px] text-[#65766C]">
-        {count}
-      </p>
+      <p className="flex items-center justify-center min-w-6 h-6.25 bg-[#F0F4F1] rounded-md px-1.5 text-[11px] leading-[16.5px] text-[#65766C]">{count}</p>
     </div>
   );
 };
